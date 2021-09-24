@@ -1,6 +1,5 @@
 name: ci-test
-on:
-  push:
+on: [push]
   #   branches:
   #     - develop
   # pull_request:
@@ -16,7 +15,7 @@ jobs:
       - name: "setup node"
         uses: actions/setup-node@v1
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: 12
       - name: "lint"
         run: |
          yarn
@@ -29,7 +28,7 @@ jobs:
       - name: "setup node"
         uses: actions/setup-node@v1
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: 12
       - name: "build"
         run: |
          yarn
