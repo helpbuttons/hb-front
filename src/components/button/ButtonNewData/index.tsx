@@ -36,7 +36,7 @@ export default function ButtonNewData({ exact, ...props }) {
               <label htmlFor="files" className="btn">
                 + Añadir imagen
               </label>
-              <input id="files" type="file" className="btn"/>
+              <input id="files" type="file" className="btn file-upload-button"/>
 
           </div>
 
