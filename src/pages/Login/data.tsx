@@ -27,12 +27,15 @@ export class LoginEvent implements WatchEvent {
       }),
       catchError((error) => {
         console.log("error: ", error.message);
-        if(error.response.error.details) {
+
+        if(error?.response?.error?.details != null) {
           alertService.error(error.response.error.details[0].message);
+        } else if (error?.response?.error?.message) {
+            alertService.error(error?.response?.error?.message);
         } else {
-          alertService.error(error.response.error.message);
+          alertService.error("no backend response : " + error);
         }
-        return of(error);
+        return of(error.message );
       }),
     )
   }
