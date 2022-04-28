@@ -591,6 +591,15 @@ function Repository() {
           </div>
         </section>
 
+        <h3 className="repository__title">components/card-button-map 2</h3>
+        <section className="repository__section repository__section--yellow">
+          <div className="card-button-map card-button-map--need">
+            <div className="card-button-map__content">
+              <div className="container slideshow"></div>
+            </div>
+          </div>
+        </section>
+
         <h3 className="repository__title">components/card-button-list</h3>
 
         <section className="repository__section repository__section--yellow">

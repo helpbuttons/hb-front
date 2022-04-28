@@ -73,6 +73,42 @@ $card-button-map-border-height: $border-general-height;
   width: 100%;
 }
 
+.slideshow {
+  background-image: url(https://i.imgur.com/7RFFWo5.jpeg),
+    url(https://i.imgur.com/7RFFWo5.jpeg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 0 0, 50vw 0;
+  transition: all 1s ease;
+
+  &:hover {
+    background-position: -50vw 0, 0 0;
+  }
+}
+
+// basic rules
+:root {
+  color: #fff;
+  font-family: verdana;
+}
+body {
+  background: gray;
+}
+h1 {
+  text-align: center;
+  text-shadow: 2px 2px 2px #000;
+  text-transform: uppercase;
+}
+.container {
+  width: 50vw;
+  height: 50vh;
+  left: 50%;
+  top: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  box-shadow: 0px 0px 10px 1px black;
+}
+
 .card-button-map--offer:after {
   background: $color-green;
 }
