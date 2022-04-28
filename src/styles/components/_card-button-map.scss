@@ -10,11 +10,13 @@ $card-button-map-image-height: 10rem;
 $card-button-map-margin: 0.5rem;
 $card-button-map-situation-background-size: 14px;
 $card-button-map__submenu-show-width: 120px;
-$card-button-map__submenu-show-left: calc( #{$card-button-map__submenu-show-width} / -2 );
+$card-button-map__submenu-show-left: calc(
+  #{$card-button-map__submenu-show-width} / -2
+);
 $card-button-map-size-icon-before: 18px;
 
 // convivences
-$card-button-map-whitespace: .5rem;
+$card-button-map-whitespace: 0.5rem;
 $card-button-map-border-height: $border-general-height;
 
 .card-button-map {
@@ -25,14 +27,14 @@ $card-button-map-border-height: $border-general-height;
   position: relative;
   margin: auto;
   margin-bottom: $card-button-map-margin-bottom;
-  border-radius: 0 0 $border-radius-basic  $border-radius-basic;
+  border-radius: 0 0 $border-radius-basic $border-radius-basic;
   p {
     margin-bottom: 0;
   }
 }
 
 .card-button-map--wrapper {
-  .leaflet-popup-content-wrapper{
+  .leaflet-popup-content-wrapper {
     background: transparent;
     box-shadow: none;
   }
@@ -61,7 +63,7 @@ $card-button-map-border-height: $border-general-height;
 .card-button-map--intercambio:before,
 .card-button-map--intercambio-swap:after,
 .card-button-map--intercambio-swap:before {
-  content: '';
+  content: "";
   border-radius: 0;
   display: inline-block;
   height: $card-button-map-border-height;
@@ -137,7 +139,8 @@ $card-button-map-border-height: $border-general-height;
 }
 
 .card-button-map__submenu {
-  background: transparent url('../../../public/assets/svg/icons/down.svg') center no-repeat;
+  background: transparent url("../../../public/assets/svg/icons/down.svg")
+    center no-repeat;
   background-size: 100%;
   height: 100%;
   position: relative;
@@ -153,20 +156,18 @@ $card-button-map-border-height: $border-general-height;
   width: $card-button-map__submenu-show-width;
 }
 
-
 .card-button-map__submenu-link {
   color: $color-black;
   display: block;
   font-size: $font-size-general;
   font-weight: bold;
-  padding: .25rem .5rem;
+  padding: 0.25rem 0.5rem;
   text-indent: 0;
 }
 
 .card-button-map__map-container {
   border-radius: 5px !important;
 }
-
 
 .card-button-map__calification {
   color: $color-gray;
@@ -190,7 +191,7 @@ $card-button-map-border-height: $border-general-height;
   text-overflow: ellipsis;
   //overflow-x: hidden;
   font-weight: bold;
-  padding-top: .25rem;
+  padding-top: 0.25rem;
 }
 
 .card-button-map__title {
@@ -204,7 +205,7 @@ $card-button-map-border-height: $border-general-height;
   font-size: $font-size-general;
   font-weight: bold;
   flex-flow: row nowrap;
-  padding: .5rem 0 $card-button-map-whitespace 0;
+  padding: 0.5rem 0 $card-button-map-whitespace 0;
 }
 
 .card-button-map__local,
@@ -213,12 +214,14 @@ $card-button-map-border-height: $border-general-height;
 }
 
 .card-button-map__local {
-  background: transparent url('../../../public/assets/svg/icons/place.svg') left center no-repeat;
+  background: transparent url("../../../public/assets/svg/icons/place.svg") left
+    center no-repeat;
   background-size: auto $card-button-map-situation-background-size;
 }
 
 .card-button-map__time {
-  background: transparent url('../../../public/assets/svg/icons/time.svg') left center no-repeat;
+  background: transparent url("../../../public/assets/svg/icons/time.svg") left
+    center no-repeat;
   background-size: $card-button-map-situation-background-size;
   margin-left: 1rem;
 }
@@ -227,7 +230,7 @@ $card-button-map-border-height: $border-general-height;
 .card-button-map__offer {
   display: flex;
   flex-flow: row wrap;
-  padding: .25rem 0 0 0;
+  padding: 0.25rem 0 0 0;
 }
 
 .card-button-map__need {
@@ -260,7 +263,7 @@ $card-button-map-border-height: $border-general-height;
   text-align: left;
 
   & p {
-    margin-top: 0;//Revise
+    margin-top: 0; //Revise
   }
 
   & a {
@@ -274,10 +277,9 @@ $card-button-map-border-height: $border-general-height;
   white-space: nowrap;
 }
 
-.card-button-map__nets{
+.card-button-map__nets {
   padding: $card-button-map-whitespace 0;
   display: flex;
-
 }
 
 .resume {
@@ -291,26 +293,22 @@ $card-button-map-border-height: $border-general-height;
 
 .card-button-map__picture {
   position: relative;
-
 }
 
 .card-button-map__picture-container {
-
   width: auto;
   max-height: $card-button-map-image-height;
   height: $card-button-map-image-height;
   overflow: hidden;
   border-radius: $border-radius-basic;
-  margin: 0 $card-button-map-margin $card-button-map-margin $card-button-map-margin;
+  margin: 0 $card-button-map-margin $card-button-map-margin
+    $card-button-map-margin;
   display: flex;
   justify-content: center;
   position: relative;
-
 }
 
-
 .card-button-map__nav {
-
   width: 100%;
   height: inherit;
   position: absolute;
@@ -319,13 +317,10 @@ $card-button-map-border-height: $border-general-height;
   justify-content: space-between;
   align-items: center;
   padding: 0 $padding-small;
-
 }
 
 .card-button-map__nav .arrow {
-
   @extend .btn-circle--small !optional;
-
 }
 
 .card-button-map__nav .arrow--left {
@@ -335,7 +330,6 @@ $card-button-map-border-height: $border-general-height;
 .card-button-map__nav .arrow--right {
   @extend .card-button-map__nav;
 }
-
 
 .card-button-map__city,
 .card-button-map__city-list,
@@ -387,29 +381,31 @@ $card-button-map-border-height: $border-general-height;
   position: absolute;
   z-index: 401;
   right: 0;
-  padding: .5rem;
+  padding: 0.5rem;
 }
 
 .card-button-map__city:before,
 .card-button-map__city-list:before,
 .card-button-map__date:before {
   background: red;
-  content: '';
+  content: "";
   display: inline-block;
   height: $card-button-map-size-icon-before;
-  margin-right: .5rem;
-  transform: translateY(.25rem);
+  margin-right: 0.5rem;
+  transform: translateY(0.25rem);
   width: $card-button-map-size-icon-before;
 }
 
 .card-button-map__city:before,
 .card-button-map__city-list:before {
-  background: transparent url('../../../public/assets/svg/icons/icon-map.svg') left center no-repeat;
+  background: transparent url("../../../public/assets/svg/icons/icon-map.svg")
+    left center no-repeat;
   background-size: 100% auto;
 }
 
 .card-button-map__date:before {
-  background: transparent url('../../../public/assets/svg/icons/time_black.svg') left center no-repeat;
+  background: transparent url("../../../public/assets/svg/icons/time_black.svg")
+    left center no-repeat;
   background-size: 100% auto;
 }
 
@@ -436,7 +432,6 @@ $card-button-map-border-height: $border-general-height;
     display: none;
   }
 }
-
 
 //revise nueva clase
 .card-button-maps {
