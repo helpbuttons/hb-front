@@ -17,7 +17,7 @@ export default function HomeInfo() {
   // const [networks, setNetworks] = useState(useRef(store, (state) => state.commonData.networks));
   const networks = useRef(store, (state) => state.commonData.networks);
   const [selectedNetworkId, setSelectedNetworkId] = useState(useRef( store, (state) => {
-      debugger
+      // debugger
       if(state.commonData.selectedNetwork == null)
       {
         return "0";
