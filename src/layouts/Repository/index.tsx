@@ -596,7 +596,37 @@ function Repository() {
           <div className="card-button-map card-button-map--need">
             <div className="card-button-map__content">
               <div className="card-button-map__header">
-                <div className="container slideshow card-button-map__picture"></div>
+                <div className="slidershow middle card-button-map__picture">
+                  <div className="slides ">
+                    <input type="radio" name="r" id="r1" checked />
+                    <input type="radio" name="r" id="r2" />
+                    <input type="radio" name="r" id="r3" />
+                    <input type="radio" name="r" id="r4" />
+                    <input type="radio" name="r" id="r5" />
+                    <div className="slide s1">
+                      <img src="https://i.imgur.com/7RFFWo5.jpeg" />
+                    </div>
+                    <div className="slide">
+                      <img src="https://i.imgur.com/d81cyJJ.jpeg" />
+                    </div>
+                    <div className="slide">
+                      <img src="https://i.imgur.com/wMiwcGk.jpeg" />
+                    </div>
+                    <div className="slide">
+                      <img src="https://i.imgur.com/e6wuMmO.jpeg" />
+                    </div>
+                    <div className="slide">
+                      <img src="https://i.imgur.com/PH5K4kz.jpeg" />
+                    </div>
+                  </div>
+                  <div className="navigation card-button-map__picture">
+                    <label htmlFor="r1" className="bar"></label>
+                    <label htmlFor="r2" className="bar"></label>
+                    <label htmlFor="r3" className="bar"></label>
+                    <label htmlFor="r4" className="bar"></label>
+                    <label htmlFor="r5" className="bar"></label>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
