@@ -4,7 +4,7 @@ import { IoChevronForwardOutline } from "react-icons/io5";
 import { IoChevronBackOutline } from "react-icons/io5";
 import { Link } from "elements/Link";
 
-export default function CardButtonMap({ type }) {
+export default function CardButtonMap({ type, tags, images, description, date, location }) {
   return (
     <div className="card-button-map card-button-map--need">
       <div className="card-button-map__content">
@@ -19,14 +19,17 @@ export default function CardButtonMap({ type }) {
               </div>
             </div>
           </div>
-
           <div className="card-button-map__hashtags">
-            <div className="card-button-map__need">
-              <div className="hashtag">tag</div>
-            </div>
-            <div className="card-button-map__offer">
-              <div className="hashtag">tag</div>
-            </div>
+          <div className="card-button-map__need"> { /* card-button-map__offer */ }
+            {
+              tags.map((tag, key) => {
+                return (
+                  <div className="hashtag" key={key}>{tag}</div>
+                );
+              
+            })
+          }
+          </div>
           </div>
 
           <div className="card-button-maps">

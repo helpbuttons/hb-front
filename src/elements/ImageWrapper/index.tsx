@@ -1,8 +1,9 @@
 ///image included in ButtonCard
 ///Btn is the project convention for tradittional buttons, in order to avoidd confussion with app's buttons
-import React from "react";
+import React, { useState } from "react";
 import Image from 'next/image'
 import getConfig from "next/config";
+import { IoChevronBackOutline, IoChevronForwardOutline } from "react-icons/io5";
 const { publicRuntimeConfig } = getConfig();
 const baseUrl = `${publicRuntimeConfig.apiUrl}`;
 
@@ -31,8 +32,46 @@ interface ImageProps {
     imageType: ImageType;
     localUrl?: boolean;
 }
+export function ImageCarrousel({images}) {
+    const [imageSelected, setimageSelected] = useState(0);
 
+  const nextImage = () => {
+    if (imageSelected+1 >= images.length) {
+      setimageSelected(0);
+    } else {
+      setimageSelected(imageSelected+1);  
+    }
+  }
 
+  const previousImage = () => {
+    if (imageSelected-1 < 0) {
+      setimageSelected(images.length - 1);
+    } else {
+      setimageSelected(imageSelected-1);  
+    }
+  }
+    
+    return (
+        <div className="card-button-list__picture-container">
+            {images.length > 1 && (
+                <div className="card-button-list__nav">
+                    <div className="arrow btn-circle__icon" onClick={previousImage}>
+                        <IoChevronBackOutline />
+                    </div>
+                    <div className="arrow btn-circle__icon" onClick={nextImage}>
+                        <IoChevronForwardOutline />
+                    </div>
+                </div>
+            )}
+            <ImageWrapper
+                imageType={ImageType.cardList}
+                src={images[imageSelected]}
+                alt="popup_img"
+                localUrl
+            />
+        </div>
+    );
+}
 export default function ImageWrapper({
     height = "200",
     width = "200",

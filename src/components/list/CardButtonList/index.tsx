@@ -1,37 +1,14 @@
 //Card that displays a resume of the button info in tthe List component. Its fieldds can be customizedd according to buttonTemplate.
-import ImageWrapper, { ImageType } from "elements/ImageWrapper";
-import { IoChevronForwardOutline } from "react-icons/io5";
-import { IoChevronBackOutline } from "react-icons/io5";
+import {ImageCarrousel} from "elements/ImageWrapper";
 import { Link } from "elements/Link";
-
+import DateTimeFormat from "components/formatting/DateTimeFormat";
 
 export default function CardButtonList(props) {
-  let imageUrl = "";
-  if (props && props.images && props.images.length > 0) {
-    // TODO, make imageWrapper support multiple images...
-    imageUrl = props.images[0];
-  }
-
-  
+ 
   return (
     <div className="list__element">
       <div className="card-button-list card-button-list--need">
-        <div className="card-button-list__picture-container">
-          <div className="card-button-list__nav">
-            <div className="arrow btn-circle__icon">
-              <IoChevronBackOutline />
-            </div>
-            <div className="arrow btn-circle__icon">
-              <IoChevronForwardOutline />
-            </div>
-          </div>
-          <ImageWrapper
-            imageType={ImageType.cardList}
-            src={imageUrl}
-            alt="popup_img"
-            localUrl
-          />
-        </div>
+        <ImageCarrousel images={props.images}/>
         <div className="card-button-list__content">
           <Link href="/ButtonFile">
             <div className="card-button-list__header">
@@ -69,7 +46,9 @@ export default function CardButtonList(props) {
                 {JSON.stringify(props.location.coordinates)}
               </div>
 
-              <div className="card-button-list__date">{props.date}</div>
+              <div className="card-button-list__date">
+                <DateTimeFormat datetime={props.date}/>
+              </div>
             </div>
           </Link>
         </div>
