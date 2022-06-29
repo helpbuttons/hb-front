@@ -8,11 +8,13 @@ import { GlobalState } from 'store/Store';
 
 import { NetworkService } from 'services/Networks';
 import { INetwork } from 'services/Networks/network.type.tsx';
+import { IUser } from 'services/Users/user.type';
 
 export interface CommonDataState {
   heading: string;
   networks: INetwork[];
   selectedNetwork: INetwork;
+  user: IUser;
 }
 
 
@@ -20,6 +22,7 @@ export const commonDataInitial = {
   heading: "(empty)",
   networks: [],
   selectedNetwork: null,
+  user: null,
 }
 
 //NETWORK LIST

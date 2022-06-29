@@ -10,10 +10,13 @@ import { IoHeartOutline } from "react-icons/io5";
 import { IoRibbonOutline } from "react-icons/io5";
 import { IoLogOutOutline } from "react-icons/io5";
 import { IoHammerOutline } from "react-icons/io5";
+import { GlobalState, store } from 'pages';
+import { useRef } from "store/Store";
 
 
 export default function CardProfile() {
 
+  const userData = useRef(store, (state: GlobalState) => state.commonData.user);
 
   function logout() {
       UserService.logout();

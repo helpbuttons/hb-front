@@ -65,10 +65,7 @@ export class UserService {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
-            "accept": "application/json",
-          },
-          body: {
-            token: token,
+            Authorization: "Bearer " + token,
           },
       });
 

@@ -5,7 +5,16 @@ import { NetworkService } from "services/Networks";
 import { INetwork } from "services/Networks/network.type";
 import { UpdateEvent, WatchEvent } from "./Event";
 
- 
+export class userLoggedIn implements UpdateEvent {
+  public constructor(private userData: any) { }
+  
+  public update(state: GlobalState) {
+    return produce(state, (newState: GlobalState) => {
+      newState.commonData.user = this.userData;
+    });
+  }
+}
+
 export class selectedNetworkEvent implements UpdateEvent {
   public constructor(private network: any) { }
   
