@@ -1,5 +1,5 @@
 //Mobile bottom navigation component with just creation , profile and home buttons if logged in. It not logged it shows home, Button creation , login and faqs too.
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 import NavLink from 'elements/Navlink';
 import { IoAddOutline } from "react-icons/io5";
@@ -8,10 +8,6 @@ import { IoHeartOutline } from "react-icons/io5";
 import { IoLogInOutline } from "react-icons/io5";
 import { IoHelpOutline } from "react-icons/io5";
 import { IoGlobeOutline } from "react-icons/io5";
-import { useRef } from "store/Store";
-import { GlobalState, store } from 'pages';
-import {ImageContainer} from "elements/ImageWrapper";
-import { loadSelectedNetworkId } from './data';
 
 export default NavBottom;
 
