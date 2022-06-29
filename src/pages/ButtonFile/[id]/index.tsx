@@ -1,25 +1,31 @@
-//the button url itself
-import { IoPaperPlaneOutline } from "react-icons/io5";
-import { IoAddOutline } from "react-icons/io5";
+import { useRouter } from 'next/router'
+import { IoAddOutline, IoPaperPlaneOutline } from "react-icons/io5";
 
 import CardButton from 'components/button/CardButton'
-import CardNotification from 'components/feed/CardNotification'
 
 import Feed from 'layouts/Feed'
+import { useEffect, useState } from 'react';
+import { getButton } from './data';
 
 
-export default function ButtonFile() {
+const ButtonFile = () => {
+  const router = useRouter()
+  const { id } = router.query
+  const [button, setButton] = useState({});
+
+  useEffect(() => {
+    if (id) {
+        getButton(id, setButton);
+    }
+  }, [id])
 
   return (
 
     <>
 
         <div className="body__content">
-
         <div className="body__section">
-
-
-            <CardButton />
+            <CardButton button={button}/>
 
 
           {/* ACTION SECTION - HERE COME BASIC INTERACTION BUTTONS AND MESSAGE INPUT */}
@@ -66,3 +72,5 @@ export default function ButtonFile() {
 
   );
 }
+
+export default ButtonFile

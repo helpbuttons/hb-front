@@ -5,7 +5,6 @@ import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import NavBottom from "components/nav/NavBottom"; //just for mobile
 import Alert from "components/overlay/Alert";
-import { NetworkService } from 'services/Networks';
 import { loadStoreValues } from './data';
 
 export default MyApp;
@@ -42,7 +41,7 @@ function MyApp({ Component, pageProps }) {
     function authCheck(url) {
         // redirect to login page if accessing a private page and not logged in
         const token =  window.localStorage.getItem('access_token');
-        const publicPaths = ['/Login', '/Signup', '/RepositoryPage', '/Faqs', '/', '/ButtonNew', '/Explore', '/HomeInfo'];
+        const publicPaths = ['/Login', '/Signup', '/RepositoryPage', '/Faqs', '/', '/Explore', '/HomeInfo'];
         const path = url.split('?')[0];
 
         if (token) {

@@ -24,7 +24,7 @@ export default function CardButtonMap({ type, tags, images, description, date, l
           <div className="card-button-map__header ">
             <div className="card-button-map__info">
               <div className="card-button-map__status card-button-map__status">
-                {description}
+                {type} - {description}
               </div>
             </div>
           </div>
