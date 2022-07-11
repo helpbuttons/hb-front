@@ -10,6 +10,7 @@ import "leaflet/dist/leaflet.css";
 import CardButtonMap from "components/map/CardButtonMap";
 import { MarkerButton, MarkersButton } from "components/map/MarkerButton";
 import { ButtonService } from "services/Buttons";
+import { LatLngExpression } from "leaflet";
 
 const AddMarker = ({ handleClick }) => {
   const [position, setPosition] = useState(null);
@@ -31,15 +32,13 @@ const AddMarker = ({ handleClick }) => {
   });
 
   return position === null ? null : (
-    <MarkerButton position={position}></MarkerButton>
+    <MarkerButton position={position}>
+    </MarkerButton>
   );
 };
 
-export default function Map({ buttons, style, addMarkerClick, initialLocation = {
-  lat: "51.505",
-  lng: "-0.09",
-} }) {
-  const [currentLocation, setCurrentLocation] = useState(initialLocation);
+export default function Map({ buttons, style, addMarkerClick, initialLocation }) {
+  const [currentLocation, setCurrentLocation] = useState<LatLngExpression>(initialLocation);
   const [zoom, setZoom] = useState(13);
 
   return (

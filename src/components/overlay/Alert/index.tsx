@@ -10,6 +10,12 @@ import { IoCloseOutline } from "react-icons/io5";
 
 export default Alert;
 
+interface AlertMessage {
+    message: string;
+    autoClose: boolean;
+}
+ 
+  
 Alert.propTypes = {
     id: PropTypes.string,
     fade: PropTypes.bool

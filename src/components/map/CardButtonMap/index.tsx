@@ -4,7 +4,8 @@ import { IoChevronForwardOutline } from "react-icons/io5";
 import { IoChevronBackOutline } from "react-icons/io5";
 import { Link } from "elements/Link";
 
-export default function CardButtonMap({ type }) {
+export default function CardButtonMap(props) {
+  const {type} = props;
   return (
     <div className="card-button-map card-button-map--need">
       <div className="card-button-map__content">
