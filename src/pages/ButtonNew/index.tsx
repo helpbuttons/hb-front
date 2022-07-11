@@ -7,7 +7,7 @@ import Popup from "components/popup/Popup";
 import ButtonType from "components/button/ButtonType";
 
 import { GlobalState, store } from 'pages';
-import { CreateButtonEvent } from "pages/ButtonNew/data";
+import { createNewButton } from "pages/ButtonNew/data";
 import { IButton } from "services/Buttons/button.type";
 import FieldLocation from "elements/Fields/FieldLocation";
 import PopupSection from "components/popup/PopupSection";
@@ -56,9 +56,7 @@ export default function ButtonNew() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    store.emit(
-      new CreateButtonEvent(button, token, networkId, setValidationErrors)
-    );
+    createNewButton(button, token, networkId, setValidationErrors)
   };
 
   return (

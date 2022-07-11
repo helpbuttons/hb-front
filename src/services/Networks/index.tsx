@@ -1,13 +1,8 @@
 import { Observable } from "rxjs";
 import { ajax } from "rxjs/ajax";
 import { INetwork } from "./network.type";
-import { GlobalState, store } from "pages/index";
-import { WatchEvent } from "store/Event";
-import { map, tap, take, catchError } from "rxjs/operators";
-import { localStorageService } from "services/LocalStorage";
+import { map } from "rxjs/operators";
 import { UtilsService } from "services/Utils";
-import { UpdateEvent } from "store/Event";
-import { produce } from "immer";
 
 import getConfig from "next/config";
 const { publicRuntimeConfig } = getConfig();
@@ -15,11 +10,6 @@ const baseUrl = `${publicRuntimeConfig.apiUrl}`;
 
 
 export class NetworkService {
-  //Create network
-  public static create(network, token: string, successFunc, failFunc) {
-    store.emit(new CreateNetworkEvent(network, token,successFunc, failFunc));
-  }
-
   public static new(data: INetwork, token: string): Observable<any> {
     let bodyData = {
       name: data.name,
