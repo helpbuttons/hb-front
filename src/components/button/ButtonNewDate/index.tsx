@@ -3,6 +3,7 @@ import { Picker, PickerSelector } from "components/picker/Picker";
 import PickerPeriodDate from "components/picker/PickerPeriodDate";
 import PickerDate from "components/picker/PickerDate";
 import React, { useState } from "react";
+import DateTimeFormat from "components/formatting/DateTimeFormat";
 
 export default function ButtonNewDate({ exact, ...props }) {
   const [showHideMenu, setHideMenu] = useState(false);
@@ -15,7 +16,7 @@ export default function ButtonNewDate({ exact, ...props }) {
   return (
     <>
       <div className="form__field">
-        <div className="card-button__date">{props.date}</div>
+        <div className="card-button__date"><DateTimeFormat datetime={props.date}/></div>
 
         <div className="btn" onClick={() => setHideMenu(!showHideMenu)}>
           Change date
@@ -25,21 +26,21 @@ export default function ButtonNewDate({ exact, ...props }) {
         <Picker setHideMenu={setHideMenu} onClosed={closeMenu}>
           {pickerMode == "" && (
             <PickerSelector
-              label="Now"
+              label="Now (until you deactivate it)"
               value="now"
               onHandleChange={setPickerMode}
             />
           )}
           {pickerMode == "" && (
             <PickerSelector
-              label="Specific"
+              label="Specific date and time"
               value="specific"
               onHandleChange={setPickerMode}
             />
           )}
           {pickerMode == "" && (
             <PickerSelector
-              label="Periodic Date"
+              label="Regular periodic date and time"
               value="periodic"
               onHandleChange={setPickerMode}
             />
