@@ -5,7 +5,6 @@ import Router, { withRouter } from 'next/router';
 import { UpdateEvent, WatchEvent } from 'store/Event';
 
 import { UserService } from 'services/Users';
-import { IUser } from 'services/Users/types';
 import { HttpService } from "services/HttpService";
 import { errorService } from 'services/Error';
 import { GlobalState } from 'pages';

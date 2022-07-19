@@ -29,7 +29,7 @@ const defaultId = 'default-alert';
 
 // enable subscribing to alerts observable
 function onAlert(id = defaultId) {
-    return alertSubject.asObservable().pipe(filter(x => x && x.id === id));
+    return alertSubject.asObservable().pipe(filter((x : {id: string}) => x && x.id === id));
 }
 
 // convenience methods

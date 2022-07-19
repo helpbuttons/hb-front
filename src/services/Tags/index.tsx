@@ -4,6 +4,7 @@ import { map, catchError } from 'rxjs/operators';
 import { of } from 'rxjs';
 import { BehaviorSubject } from 'rxjs';
 import getConfig from 'next/config';
+import { ITag } from './tag.type';
 const { publicRuntimeConfig } = getConfig();
 const baseUrl = `${publicRuntimeConfig.apiUrl}`;
 

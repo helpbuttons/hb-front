@@ -4,7 +4,7 @@ import PickerPeriodDate from "components/picker/PickerPeriodDate";
 import PickerDate from "components/picker/PickerDate";
 import React, { useState } from "react";
 
-export default function ButtonNewDate({ exact, ...props }) {
+export default function ButtonNewDate(props) {
   const [showHideMenu, setHideMenu] = useState(false);
   const [pickerMode, setPickerMode] = useState("");
 

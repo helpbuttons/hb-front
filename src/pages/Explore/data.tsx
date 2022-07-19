@@ -1,12 +1,11 @@
 import { map } from 'rxjs/operators';
 import { produce } from 'immer';
 
-import { WatchEvent } from 'store/Event';
-import { UpdateEvent } from '../store/Event';
-import { GlobalState } from 'store/Store';
+import { UpdateEvent, WatchEvent } from 'store/Event';
 
 import { ButtonService } from 'services/Buttons';
 import { IButton } from 'services/Buttons/button.type';
+import { GlobalState } from 'pages';
 
 // import { map, tap, take, catchError } from 'rxjs/operators';
 //

@@ -1,16 +1,16 @@
 import { map } from 'rxjs/operators';
 import { produce } from 'immer';
 
-import { WatchEvent } from 'store/Event';
-import { UpdateEvent } from '../store/Event';
-import { GlobalState } from 'store/Store';
+import { UpdateEvent, WatchEvent } from 'store/Event';
 
 import { NetworkService } from 'services/Networks';
 import { INetwork } from 'services/Networks/network.type';
+import { GlobalState } from 'pages';
 
 export interface CommonState {
   // networks: INetwork[];
   selectedNetwork: INetwork;
+  selectedNetworkLoading: boolean;
 }
 
 export const commonInitial = {

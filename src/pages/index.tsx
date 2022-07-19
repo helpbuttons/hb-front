@@ -5,9 +5,6 @@ import { Store } from "store/Store";
 import { Event } from "store/Event";
 
 //services
-import { userService } from 'services/Users';
-import ButtonDataService from "services/Buttons";
-import { authenticationService } from 'services';
 
 //    Components
 import HomeInfo from "pages/HomeInfo";

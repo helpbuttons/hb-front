@@ -10,10 +10,10 @@ import { alertService } from "services/Alert";
 export function setSelectedNetworkId(networkId: string) {
   
   return NetworkService.findById(networkId).subscribe(network => {
-    if (network.response) {
-      alertService.info("You have selected network '" + network.response.name.toString() + "'");
+    if (network) {
+      alertService.info("You have selected network '" + network.name.toString() + "'");
       localStorageService.save(LocalStorageVars.NETWORK_SELECTED, networkId);
-      store.emit(new selectedNetworkEvent(network.response));
+      store.emit(new selectedNetworkEvent(network));
     }
   });
 }

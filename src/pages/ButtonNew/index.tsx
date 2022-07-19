@@ -32,7 +32,7 @@ export default function ButtonNew() {
   const fields = {
     name: "",
     templateButtonId: null,
-    type: "",
+    type: "need",
     description: "",
     latitude: null,
     longitude: null,

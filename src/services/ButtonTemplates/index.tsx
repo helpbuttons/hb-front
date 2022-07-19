@@ -3,6 +3,7 @@ import { ajax } from 'rxjs/ajax';
 import { map, catchError } from 'rxjs/operators';
 import { of } from 'rxjs';
 import getConfig from 'next/config';
+import { ITemplateButton } from './buttonTemplate.type';
 const { publicRuntimeConfig } = getConfig();
 const baseUrl = `${publicRuntimeConfig.apiUrl}`;
 
@@ -49,7 +50,7 @@ export class TemplateButtonService {
           },
           body: {
 
-            "templateButtonId" : data.id,
+            // "templateButtonId" : data.id,
             "networks" : networks,
 
           },
