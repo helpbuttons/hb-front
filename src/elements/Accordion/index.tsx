@@ -2,11 +2,11 @@
 import React, {useState} from "react";
 
 
-export default function Accordion({
+export default function Accordion(props) {
+  const {
     title,
     children,
-}: BtnProps) {
-
+} = props;
   const [showChildren, setShowChildren] = useState(false);
 
     return (

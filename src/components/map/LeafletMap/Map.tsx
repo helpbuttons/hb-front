@@ -31,14 +31,17 @@ const AddMarker = ({ handleClick }) => {
   });
 
   return position === null ? null : (
-    <MarkerButton position={position}></MarkerButton>
+    <MarkerButton position={position}>
+      <></>
+    </MarkerButton>
   );
 };
 
-export default function Map({ buttons, style, addMarkerClick, initialLocation = {
-  lat: "51.505",
-  lng: "-0.09",
-} }) {
+export default function Map(props) {
+  const { buttons, style, addMarkerClick, initialLocation = {
+    lat: "51.505",
+    lng: "-0.09",
+  } } = props;
   const [currentLocation, setCurrentLocation] = useState(initialLocation);
   const [zoom, setZoom] = useState(13);
 

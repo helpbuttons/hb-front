@@ -1,5 +1,5 @@
 //Profile Card with the the info displayed by the user in Profile page. It shows different options depending if it's other user profile or your profile when logged.
-import CrossIcon from '../../../public/assets/svg/icons/cross1.tsx'
+import CrossIcon from '../../../public/assets/svg/icons/cross1'
 
 export default function Directory() {
   return (

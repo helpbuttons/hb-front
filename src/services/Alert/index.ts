@@ -18,6 +18,12 @@ export const AlertType = {
     Warning: 'Warning'
 };
 
+export interface AlertMessage {
+    id: string;
+    autoClose: boolean;
+    message: string;
+}
+
 const alertSubject = new Subject();
 const defaultId = 'default-alert';
 
@@ -27,19 +33,19 @@ function onAlert(id = defaultId) {
 }
 
 // convenience methods
-function success(message, options) {
+function success(message, options?) {
     alert({ ...options, type: AlertType.Success, message });
 }
 
-function error(message, options) {
+function error(message, options?) {
     alert({ ...options, type: AlertType.Error, message });
 }
 
-function info(message, options) {
+function info(message, options?) {
     alert({ ...options, type: AlertType.Info, message });
 }
 
-function warn(message, options) {
+function warn(message, options?) {
     alert({ ...options, type: AlertType.Warning, message });
 }
 

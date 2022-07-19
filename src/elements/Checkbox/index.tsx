@@ -19,22 +19,15 @@ function CheckBoxIcon({ icon }: { icon: IconType }) {
 
 
 
-export default function CheckBox({
-    icon,
-    text,
-    inputId,
-    value,
-    name,
-    handleChange = (name :string, value :any) => {},
-}: {
-    icon: IconType;
-    text: string;
-    inputId: string;
-    value: string;
-    name: string;
-    handleChange?: (name :string, value :any) => void;
-}) {
-    
+export default function CheckBox(props) {
+    const {
+        icon,
+        text,
+        inputId,
+        value,
+        name,
+        handleChange = (name :string, value :any) => {},
+    } = props;
     const [checked, setChecked] = useState(false);
 
     const onChange = () => {

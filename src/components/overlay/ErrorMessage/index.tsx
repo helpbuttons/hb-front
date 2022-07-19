@@ -1,5 +1,5 @@
 ///error small popup
-import CrossIcon from '../../../../public/assets/svg/icons/cross1.tsx'
+import CrossIcon from "../../../../public/assets/svg/icons/cross1";
 
 export default function ErrorMessage() {
   return (

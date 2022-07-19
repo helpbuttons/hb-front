@@ -24,7 +24,7 @@ export enum ContentAlignment {
 interface ImageProps {
     height?: string;
     width?: string;
-    layout?: string;
+    layout?: "fixed" | "responsive" | "fill" | "intrinsic";
     src: string;
     alt: string;
     objectFit?: string;

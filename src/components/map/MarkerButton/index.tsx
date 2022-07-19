@@ -33,13 +33,13 @@ export function MarkersButton({ buttons, ...props }) {
         <CardButtonMap
           key={button.id}
           type={button.type}
-          userName={button.owner}
-          images={button.images}
-          buttonName={button.name}
-          tags={button.tags}
-          description={button.description}
-          date={button.date}
-          location={button.geoPlace}
+          // userName={button.owner}
+          // images={button.images}
+          // buttonName={button.name}
+          // tags={button.tags}
+          // description={button.description}
+          // date={button.date}
+          // location={button.geoPlace}
         />
       </Popup>
     </MarkerButton>
