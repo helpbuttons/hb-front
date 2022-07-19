@@ -20,7 +20,8 @@ import { GlobalState, store } from "pages";
 import { setSelectedNetworkId } from "./data";
 
 export default function HomeInfo() {
-  const selectedNetwork = useRef(store, (state :GlobalState) => state.commonData.selectedNetwork);
+  const selectedNetwork = useRef(store, (state: GlobalState) => state.common.selectedNetwork);
+  const selectedNetworkLoading = useRef(store, (state: GlobalState) => state.common.selectedNetworkLoading);
 
   return (
     <>
@@ -45,6 +46,11 @@ export default function HomeInfo() {
           <div className="info-overlay__bottom">
             <div className="info-overlay__nets">
               <div>
+                { selectedNetworkLoading && (
+                  <>
+                    <div>Loading...</div>
+                  </>)
+                }
                 { selectedNetwork && (
                   <>
                     {selectedNetwork.name}

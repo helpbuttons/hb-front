@@ -5,7 +5,8 @@ import Router, { withRouter } from 'next/router';
 import { UpdateEvent, WatchEvent } from 'store/Event';
 
 import { UserService } from 'services/Users';
-import { HttpUtilsService } from "services/HttpUtilsService";
+import { IUser } from 'services/Users/types';
+import { HttpService } from "services/HttpService";
 import { errorService } from 'services/Error';
 import { GlobalState } from 'pages';
 import { IUser } from 'services/Users/user.type';
@@ -14,14 +15,16 @@ import { IUser } from 'services/Users/user.type';
 //Called event for login
 export class LoginFormEvent implements WatchEvent {
 
-  public constructor(private email: string,private password: string, private setValidationErrors) {}
+  public constructor(private email: string, private password: string, private setValidationErrors) {}
+
   public watch(state: GlobalState) {
     return UserService.login(this.email, this.password).pipe(
       map(userData => userData),
       take(1),
       tap(userData => {
         if(userData.response.token)
-        new HttpUtilsService().setAccessToken("user",userData.response.token);
+
+        new HttpService().setAccessToken("user",userData.response.token);
         Router.push({ pathname: '/'});
       }),
       catchError((error) => {
