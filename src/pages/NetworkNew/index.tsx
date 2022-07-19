@@ -53,7 +53,7 @@ export default function NetworkNew() {
           <Form onSubmit={handleSubmit}>
             <FieldText
               handleChange={setValue}
-              value={values.name}
+              // value={values.name}
               name="name"
               label="Name"
               validationError={validationErrors.name}
@@ -65,7 +65,7 @@ export default function NetworkNew() {
             />
             <FieldText
               handleChange={setValue}
-              value={values.url}
+              // value={values.url}
               name="url"
               label="Url"
               validationError={validationErrors.url}
@@ -79,7 +79,7 @@ export default function NetworkNew() {
             ></FieldCheckbox>
             <FieldText
               handleChange={setValue}
-              value={values.description}
+              // value={values.description}
               name="description"
               label="Description"
               validationError={validationErrors.description}

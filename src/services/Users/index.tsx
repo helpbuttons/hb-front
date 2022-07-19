@@ -1,8 +1,5 @@
 import { Observable } from 'rxjs';
 import { ajax } from 'rxjs/ajax';
-import { map, catchError } from 'rxjs/operators';
-import { of } from 'rxjs';
-import { store } from './index';
 import getConfig from 'next/config';
 import { localStorageService, LocalStorageVars } from 'services/LocalStorage';
 const { publicRuntimeConfig } = getConfig();

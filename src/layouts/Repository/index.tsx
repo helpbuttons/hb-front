@@ -115,7 +115,7 @@ function Repository() {
               Filter with icon green
             </button>
 
-            <Btn btnType={BtnType.filter} iconLeft={IconType.green} iconRight={IconType.remove} caption="Filter with double icon Btn" />
+            <Btn btnType={BtnType.filter} iconLeft={IconType.green} iconRight={IconType.red} caption="Filter with double icon Btn" />
             <button className="btn-filter-with-icon">
               <div className="btn-filter__icon green"></div>
               Filter with double icon

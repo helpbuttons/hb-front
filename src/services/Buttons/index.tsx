@@ -40,7 +40,7 @@ export class ButtonService {
   }
 
   //Edit button
-  public static edit(data: IButton): Observable<any> {
+  public static edit(id: number, data: IButton): Observable<any> {
     //save the ajax object that can be .pipe by the observable
     const buttonWithHeaders$ = ajax({
       url: baseUrl + "/buttons/edit/" + id,
@@ -54,7 +54,7 @@ export class ButtonService {
         type: data.type,
         tags: data.tags,
         description: data.description,
-        geoPlace: data.geoPlace,
+        // geoPlace: data.geoPlace,
         owner: data.owner,
         templateButtonId: data.templateButtonId,
       },
@@ -63,24 +63,24 @@ export class ButtonService {
     return buttonWithHeaders$;
   }
 
-  //Edit button
-  public static addToNetworks(data: IButton): Observable<any> {
-    //save the ajax object that can be .pipe by the observable
-    const buttonWithHeaders$ = ajax({
-      url: baseUrl + "/buttons/addToNetworks/" + id,
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        accept: "application/json",
-      },
-      body: {
-        name: data.id,
-        networks: data.networks,
-      },
-    });
+  // //Edit button
+  // public static addToNetworks(data: IButton): Observable<any> {
+  //   //save the ajax object that can be .pipe by the observable
+  //   const buttonWithHeaders$ = ajax({
+  //     url: baseUrl + "/buttons/addToNetworks/" + id,
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //       accept: "application/json",
+  //     },
+  //     body: {
+  //       name: data.id,
+  //       networks: data.networks,
+  //     },
+  //   });
 
-    return buttonWithHeaders$;
-  }
+  //   return buttonWithHeaders$;
+  // }
 
   //Get buttons
   public static find(networkId: string): Observable<IButton[]> {

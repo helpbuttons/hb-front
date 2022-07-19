@@ -11,13 +11,14 @@ import { UpdateEvent } from "store/Event";
 import { produce } from "immer";
 
 import getConfig from "next/config";
+import { IUser } from "services/Users/user.type";
 const { publicRuntimeConfig } = getConfig();
 const baseUrl = `${publicRuntimeConfig.apiUrl}`;
 
 export class NetworkService {
 
   public static create(network, token: string, successFunc, failFunc) {
-    store.emit(new CreateNetworkEvent(network, token,successFunc, failFunc));
+    // store.emit(new CreateNetworkEvent(network, token,successFunc, failFunc));
   }
 
   public static new(data: INetwork, token: string): Observable<any> {
@@ -48,7 +49,7 @@ export class NetworkService {
   }
 
   //Edit network
-  public static edit(data: INetwork, user: IUser): Observable<any> {
+  public static edit(id: number,data: INetwork, user: IUser): Observable<any> {
     //save the ajax object that can be .pipe by the observable
     const networkWithHeaders$ = ajax({
       url: baseUrl + "/networks/edit/" + id,
@@ -93,22 +94,22 @@ export class NetworkService {
   }
 
   //Map networks
-  public static map(data: INetwork): Observable<any> {
-    //save the ajax object that can be .pipe by the observable
-    const networkWithHeaders$ = ajax({
-      url: baseUrl + "/networks/map",
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        accept: "application/json",
-      },
-      body: {
-        id: id,
-      },
-    });
+  // public static map(data: INetwork): Observable<any> {
+  //   //save the ajax object that can be .pipe by the observable
+  //   const networkWithHeaders$ = ajax({
+  //     url: baseUrl + "/networks/map",
+  //     method: "GET",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //       accept: "application/json",
+  //     },
+  //     body: {
+  //       id: id,
+  //     },
+  //   });
 
-    return networkWithHeaders$;
-  }
+  //   return networkWithHeaders$;
+  // }
 
   //Get network by id
   public static findById(id: string = ""): Observable<INetwork | undefined> {

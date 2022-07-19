@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import PropTypes from 'prop-types';
 
-import { alertService, AlertType } from 'services/Alert';
+import { AlertMessage, alertService, AlertType } from 'services/Alert';
 
 import { IoSadOutline } from "react-icons/io5";
 import { IoCloseOutline } from "react-icons/io5";
@@ -20,6 +20,7 @@ Alert.defaultProps = {
     fade: true
 };
 
+
 function Alert({ id, fade }) {
     const router = useRouter();
     const [alerts, setAlerts] = useState([]);
@@ -27,7 +28,7 @@ function Alert({ id, fade }) {
     useEffect(() => {
         // subscribe to new alert notifications
         const subscription = alertService.onAlert(id)
-            .subscribe(alert => {
+            .subscribe((alert: AlertMessage) => {
                 // clear alerts when an empty alert is received
                 if (!alert.message) {
                     setAlerts(alerts => {

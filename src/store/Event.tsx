@@ -1,5 +1,7 @@
 // === Definición de eventos ===
 
+import { Observable } from "rxjs";
+
 export abstract class Event {
 }
 

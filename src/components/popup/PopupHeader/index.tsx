@@ -1,9 +1,10 @@
 ///Header for popups, with cclose option and optional other elements
-import CrossIcon from '../../../../public/assets/svg/icons/cross1.tsx'
+import CrossIcon from '../../../../public/assets/svg/icons/cross1'
 import { Link } from 'elements/Link';
 
 
-export default function PopupHeader({children, linkBack, linkFwd}) {
+export default function PopupHeader(props) {
+  const {children, linkBack, linkFwd} = props;
   return (
 
     <>

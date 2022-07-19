@@ -5,7 +5,8 @@ import FieldError from "../FieldError";
 import "leaflet/dist/leaflet.css";
 
 import Map from "components/map/LeafletMap";
-export default function FieldLocation({ setValue, values, validationErrors, initialLocation }) {
+export default function FieldLocation(props) {
+  const { setValue, values, validationErrors, initialLocation } = props;
   const [showHideMenu, setHideMenu] = useState(false);
   const style = { width: "100%", height: "600px" };
 

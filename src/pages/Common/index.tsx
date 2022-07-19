@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useRef } from 'store/Store';
 import { store } from 'pages/index';
-import { LoadCommonNetworks } from './data';
+// import { LoadCommonNetworks } from './data';
 
 
 import NavHeader from 'components/nav/NavHeader'
@@ -11,9 +11,9 @@ export default function BackTest() {
   const selectedNetwork = useRef(store, (state) => state.common.selectedNetwork);
   const networks = useRef(store, (state) => state.common.networks);
 
-  useEffect(() => {
-    store.emit(new LoadCommonNetworks());
-  }, []);
+  // useEffect(() => {
+  //   store.emit(new LoadCommonNetworks());
+  // }, []);
 
   return (
   <>

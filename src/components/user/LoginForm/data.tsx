@@ -2,13 +2,13 @@ import { map, tap, take, catchError } from 'rxjs/operators';
 import { produce } from 'immer';
 import Router, { withRouter } from 'next/router';
 
-import { WatchEvent } from 'store/Event';
-import { GlobalState } from 'store/Store';
+import { UpdateEvent, WatchEvent } from 'store/Event';
 
 import { UserService } from 'services/Users';
-import { IUser } from 'services/Users/types';
 import { HttpService } from "services/HttpService";
 import { errorService } from 'services/Error';
+import { GlobalState } from 'pages';
+import { IUser } from 'services/Users/user.type';
 
 
 //Called event for login
@@ -22,8 +22,9 @@ export class LoginFormEvent implements WatchEvent {
       take(1),
       tap(userData => {
         if(userData.response.token)
+
         new HttpService().setAccessToken("user",userData.response.token);
-        Router.push({ pathname: '/', state: {} });
+        Router.push({ pathname: '/'});
       }),
       catchError((error) => {
         if (error.response && error.response.validationErrors)
@@ -42,7 +43,8 @@ export class UserLoginEvent implements UpdateEvent {
   public constructor(private userData: IUser) {}
   public update(state: GlobalState) {
     return produce(state, newState => {
-      newState.user = this.userData;
+      // TODO: user is not stored?
+      // newState.user = this.userData;
     });
   }
 }

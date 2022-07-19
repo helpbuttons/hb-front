@@ -30,7 +30,8 @@ interface BtnProps {
     isSubmitting?: boolean;
 }
 
-function BtnIcon({ icon, iconLink }: { icon: IconType }) {
+function BtnIcon(props) {
+    const { icon, iconLink } = props;
     switch (icon) {
         case IconType.red:
             return <div className="btn-filter__icon red"></div>;
@@ -64,16 +65,17 @@ function CaptionNode({
     }
 }
 
-export default function Btn({
-    caption,
-    iconRight = null,
-    iconLeft = null,
-    iconLink = null,
-    btnType = null,
-    contentAlignment = null,
-    disabled = false,
-    isSubmitting = false,
-}: BtnProps) {
+export default function Btn(props) {
+    const {
+        caption,
+        iconRight = null,
+        iconLeft = null,
+        iconLink = null,
+        btnType = null,
+        contentAlignment = null,
+        disabled = false,
+        isSubmitting = false,
+    } = props;
     let classNames = [];
     const hasIcon = iconRight !== null || iconLeft !== null;
 
