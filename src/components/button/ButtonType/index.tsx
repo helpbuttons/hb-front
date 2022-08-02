@@ -42,6 +42,7 @@ const ButtonType = React.forwardRef(({name, onChange, onBlur, validationError}, 
               name={template.description}
               ref={ref} 
               value={template.slug}
+              key={template.slug}
             >
               <div className={`btn-filter__icon ${template.slug}`}></div>
               <div className="btn-with-icon__text">{template.description}</div>
