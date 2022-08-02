@@ -15,7 +15,7 @@ function iconButton(button) {
 
                     <div class="marker-button__tags marker-button__tags--${ button.type }">
                         <div class="marker-button__link-tag">
-                          ${ button.type }
+                          ${ button.template.description }
                         </div>
                     </div>
               </figure>`
