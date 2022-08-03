@@ -39,7 +39,7 @@ const ButtonType = React.forwardRef(({name, onChange, onBlur, validationError}, 
             <FieldRadioOption
               onChange={onChange} 
               onBlur={onBlur}
-              name={template.description}
+              name="type"
               ref={ref} 
               value={template.slug}
               key={template.slug}
