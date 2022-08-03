@@ -42,6 +42,13 @@ export default function Map({ buttons, style, addMarkerClick, initialLocation = 
     onBoundsChange(map.getBounds())
   }
 
+  useEffect(()=> {
+    navigator.geolocation.getCurrentPosition(function(position) {
+      console.log("Latitude is :", position.coords.latitude);
+      console.log("Longitude is :", position.coords.longitude);
+    });
+  },[])
+
   return (
     <MapContainer
       center={currentLocation}
