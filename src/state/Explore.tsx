@@ -16,6 +16,7 @@ import { GlobalState } from 'pages';
 
 export interface ExploreState {
   mapBondsButtons: IButton[];
+  tags: string[];
 }
 
 export const exploreInitial = {
@@ -38,6 +39,16 @@ export class ButtonsFound implements UpdateEvent {
   public update(state: GlobalState) {
     return produce(state, newState => {
       newState.explore.mapBondsButtons = this.buttons;
+
+      let tags: string[] = [];
+      this.buttons.forEach((button) => {
+        button.tags.forEach((tag) => {
+          if (!tags.includes(tag))
+            tags.push(tag)
+        })
+      })
+      newState.explore.tags = tags;
+
     });
   }
 }

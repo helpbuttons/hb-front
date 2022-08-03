@@ -3,6 +3,8 @@ import { ajax } from 'rxjs/ajax';
 import { map, catchError } from 'rxjs/operators';
 import { of } from 'rxjs';
 import getConfig from 'next/config';
+import { httpService } from 'services/HttpService';
+import { ITemplateButton } from './buttonTemplate.type';
 const { publicRuntimeConfig } = getConfig();
 const baseUrl = `${publicRuntimeConfig.apiUrl}`;
 
@@ -87,29 +89,8 @@ export class TemplateButtonService {
   }
 
   //FIND templateButton
-  public static find(data: ITemplateButton): Observable<any> {
-
-      //save the ajax object that can be .pipe by the observable
-      const templateButtonWithHeaders$ = ajax({
-
-          url: baseUrl+"/templateButtons/find",
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-            "accept": "application/json",
-          },
-          body: {
-
-            "name": data.name,
-            "type": data.type,
-            "fields": data.fields,
-            "owner": data.owner,
-
-          },
-      });
-
-    return templateButtonWithHeaders$;
-
+  public static find(networkId: string): Observable<any> {
+    return httpService.get<ITemplateButton[]>("/templateButtons/find/" + networkId);
   }
 
   //FIND templateButton BY ID

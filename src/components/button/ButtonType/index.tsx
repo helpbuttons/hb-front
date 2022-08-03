@@ -2,10 +2,12 @@
 import FieldError from "elements/Fields/FieldError";
 import FieldRadio from "elements/Fields/FieldRadio";
 import FieldRadioOption from "elements/Fields/FieldRadio/option";
+import { GlobalState, store } from "pages";
 import React from "react";
 import { useState } from "react";
 
 import { IoClose } from "react-icons/io5";
+import { useRef } from "store/Store";
 type IconType = "cross" | "red";
 
 function RadioIcon({ icon }: { icon: IconType }) {
@@ -24,29 +26,29 @@ function RadioIcon({ icon }: { icon: IconType }) {
 }
 
 const ButtonType = React.forwardRef(({name, onChange, onBlur, validationError}, ref) => {
+  const selectedNetwork = useRef(
+    store,
+    (state: GlobalState) => state.networks.selectedNetwork
+  );
   return (
         <>
-          <FieldRadio label="Button type:">
+         <FieldRadio label="Button type:">
+          {selectedNetwork &&
+            selectedNetwork.templateButtons.map((template: ITemplateButton) => {
+            return (
             <FieldRadioOption
               onChange={onChange} 
               onBlur={onBlur}
-              name={name}
+              name="type"
               ref={ref} 
-              value="need"
+              value={template.slug}
+              key={template.slug}
             >
-              <div className="btn-filter__icon red"></div>
-              <div className="btn-with-icon__text">Need</div>
+              <div className={`btn-filter__icon ${template.slug}`}></div>
+              <div className="btn-with-icon__text">{template.description}</div>
             </FieldRadioOption>
-            <FieldRadioOption
-              onChange={onChange} 
-              onBlur={onBlur}
-              name={name}
-              ref={ref} 
-              value="offer"
-            >
-              <div className="btn-filter__icon green"></div>
-              <div className="btn-with-icon__text">Offer</div>
-            </FieldRadioOption>
+            );
+          })}
           </FieldRadio>
           <FieldError validationError={validationError}/>
         </>

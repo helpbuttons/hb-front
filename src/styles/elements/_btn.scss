@@ -139,7 +139,7 @@ $btn-font-size-medium: $font-size-medium;
   }
 
   //GREEN CIRCLE OFFER
-  &.green {
+  &.offer {
 
     border-radius: $btn-border-radius-semicircle;
     background: $color-green;
@@ -148,12 +148,20 @@ $btn-font-size-medium: $font-size-medium;
 
 
   //RED CIRCLE NEED
-  &.red {
+  &.need {
 
     border-radius: $btn-border-radius-semicircle;
     background: $color-red;
 
   }
+
+  &.exchange {
+
+    border-radius: $btn-border-radius-semicircle;
+    background: $color-corporative;
+
+  }
+
 
 }
 

@@ -22,7 +22,7 @@ import { NavigateTo } from "state/Routes";
 import FieldText from "elements/Fields/FieldText";
 import FieldError from "elements/Fields/FieldError";
 import { alertService } from "services/Alert";
-
+import TemplateButtonForm from "components/button/ButtonTemplate";
 
 export default function ButtonNew() {
   const selectedNetwork = useRef(
@@ -37,14 +37,14 @@ export default function ButtonNew() {
     handleSubmit,
     formState: { errors, isSubmitting },
     control,
+    watch,
   } = useForm();
 
+  const watchType = watch("type", false);
   const [errorMsg, setErrorMsg] = useState(undefined);
 
   const onSubmit = (data) => {
-    store.emit(
-      new CreateButton(data, selectedNetwork.id, onSuccess, onError)
-    );
+    store.emit(new CreateButton(data, selectedNetwork.id, onSuccess, onError));
   };
 
   const onSuccess = () => {
@@ -52,10 +52,9 @@ export default function ButtonNew() {
   };
 
   const onError = (err) => {
-    alertService.error("Error on creating button " + err, {})
+    alertService.error("Error on creating button " + err, {});
   };
-
-
+  
   return (
     <>
       <Popup title="Publish Button" linkFwd="/Explore">
@@ -63,49 +62,22 @@ export default function ButtonNew() {
           <div className="publish_btn-first">
             <ButtonType
               name="type"
-              {...register("type", {required: true})}
-              validationError={ errors.type }
+              {...register("type", { required: true })}
+              validationError={errors.type}
             />
-            <FieldTextArea
-              label="Description:"
-              name="description"
-              placeholder="Write a description for your button"
-              validationError={errors.description}
-              classNameExtra="squared"
-              {...register("description", {required: true, minLength: 10})}
-            />
-
-            {/* TODO: Warning: Cannot update a component (`ButtonNew`) while rendering a different component (`FieldTags`). To locate the bad setState() call inside `FieldTags`, follow the stack trace as described in https://reactjs.org */}
-            <FieldTags
-              label="Tag suggestions"
-              name="tags"
-              control={control}
-              validationError={errors.tags}
-            />
-
           </div>
-          <div className="publish_btn-scd">
-            <FieldUploadImages
-              name="images"
-              label="+ Add image"
-              maxNumber="4"
-              control={control}
-            />
-
-            {selectedNetwork && (
-              <FieldLocation
+          {watchType && selectedNetwork && 
+          (
+            <div className="publish_btn-scd">
+                <TemplateButtonForm 
+                templateSlug={watchType}
+                errors={errors}
+                register={register}
+                selectedNetwork={selectedNetwork}
                 control={control}
-                validationErrors={undefined}
-                initialLocation={{
-                  lat: selectedNetwork.location.coordinates[0],
-                  lng: selectedNetwork.location.coordinates[1],
-                }}
-              />
-            )}
-
-            <ButtonNewDate title="When ?" setDate={setDate} date={date} />
-            <ButtonShare />
-          </div>
+                />
+            </div>
+          )}
           <div className="publish__submit">
             <FormSubmit
               classNameExtra="create_btn"

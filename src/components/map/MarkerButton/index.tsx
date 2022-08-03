@@ -50,7 +50,7 @@ export function MarkersButton({ buttons, onBoundsChange, ...props }) {
       <Popup className="card-button-map--wrapper">
         <CardButtonMap
           key={button.id}
-          type={button.type}
+          template={button.template}
           userName={button.owner}
           images={button.images}
           buttonName={button.name}
